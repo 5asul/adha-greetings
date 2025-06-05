@@ -6,9 +6,10 @@ import { Card } from '@/components/ui/card';
 
 interface NameInputProps {
   onSubmit: (name: string) => void;
+  senderName?: string;
 }
 
-export const NameInput = ({ onSubmit }: NameInputProps) => {
+export const NameInput = ({ onSubmit, senderName }: NameInputProps) => {
   const [name, setName] = useState('');
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -17,6 +18,9 @@ export const NameInput = ({ onSubmit }: NameInputProps) => {
       onSubmit(name.trim());
     }
   };
+
+  const defaultSender = "أحمد مبارك عباد";
+  const currentSender = senderName || defaultSender;
 
   return (
     <div className="min-h-screen flex items-center justify-center p-4">
@@ -36,7 +40,7 @@ export const NameInput = ({ onSubmit }: NameInputProps) => {
         <div className="p-6 text-center">
           <div className="mb-6">
             <h2 className="text-xl font-quran text-islamic-olive mb-3 arabic">
-              تهنئة من أحمد مبارك عبود عباد
+              {senderName ? `تهنئة من ${senderName}` : `تهنئة من ${defaultSender}`}
             </h2>
             <p className="text-islamic-olive-dark arabic text-sm leading-relaxed">
               أدخل اسمك لتستقبل تهنئة شخصية بمناسبة عيد الأضحى المبارك
