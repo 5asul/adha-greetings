@@ -77,8 +77,8 @@ const Index = () => {
       
       {currentStep === 'greeting' && (
         <GreetingCard 
-          sheepName={userName}
-          sheepColor="#F9A825"
+          userName={userName}
+          userIntention={userIntention}
         />
       )}
     </div>
