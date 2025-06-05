@@ -1,25 +1,28 @@
 
 import { useState, useEffect } from 'react';
 import { LandingScreen } from '@/components/LandingScreen';
-import { SheepCustomization } from '@/components/SheepCustomization';
+import { SpiritualPreferences } from '@/components/SpiritualPreferences';
 import { JourneyScreen } from '@/components/JourneyScreen';
 import { GreetingCard } from '@/components/GreetingCard';
 
-export type JourneyStep = 'landing' | 'customization' | 'journey' | 'greeting';
+export type JourneyStep = 'landing' | 'preferences' | 'journey' | 'greeting';
 
 const Index = () => {
   const [currentStep, setCurrentStep] = useState<JourneyStep>('landing');
-  const [userSheepName, setUserSheepName] = useState('');
-  const [sheepColor, setSheepColor] = useState('#FFFFFF');
+  const [userName, setUserName] = useState('');
+  const [userIntention, setUserIntention] = useState('');
+  const [userSupplication, setUserSupplication] = useState('');
 
   useEffect(() => {
-    // Load saved progress from localStorage
-    const savedSheepName = localStorage.getItem('userSheepName');
+    // تحميل البيانات المحفوظة من localStorage
+    const savedUserName = localStorage.getItem('userName');
+    const savedIntention = localStorage.getItem('userIntention');
+    const savedSupplication = localStorage.getItem('userSupplication');
     const savedProgress = localStorage.getItem('journeyProgress');
     
-    if (savedSheepName) {
-      setUserSheepName(savedSheepName);
-    }
+    if (savedUserName) setUserName(savedUserName);
+    if (savedIntention) setUserIntention(savedIntention);
+    if (savedSupplication) setUserSupplication(savedSupplication);
     
     if (savedProgress) {
       setCurrentStep(savedProgress as JourneyStep);
@@ -27,7 +30,7 @@ const Index = () => {
   }, []);
 
   const nextStep = () => {
-    const steps: JourneyStep[] = ['landing', 'customization', 'journey', 'greeting'];
+    const steps: JourneyStep[] = ['landing', 'preferences', 'journey', 'greeting'];
     const currentIndex = steps.indexOf(currentStep);
     if (currentIndex < steps.length - 1) {
       const nextStepValue = steps[currentIndex + 1];
@@ -36,15 +39,17 @@ const Index = () => {
     }
   };
 
-  const saveSheepData = (name: string, color: string) => {
-    setUserSheepName(name);
-    setSheepColor(color);
-    localStorage.setItem('userSheepName', name);
-    localStorage.setItem('sheepColor', color);
+  const saveUserPreferences = (name: string, intention: string, supplication: string) => {
+    setUserName(name);
+    setUserIntention(intention);
+    setUserSupplication(supplication);
+    localStorage.setItem('userName', name);
+    localStorage.setItem('userIntention', intention);
+    localStorage.setItem('userSupplication', supplication);
   };
 
   console.log('Current step:', currentStep);
-  console.log('Sheep name:', userSheepName);
+  console.log('User data:', { userName, userIntention, userSupplication });
 
   return (
     <div className="min-h-screen bg-islamic-cream">
@@ -52,27 +57,28 @@ const Index = () => {
         <LandingScreen onNext={nextStep} />
       )}
       
-      {currentStep === 'customization' && (
-        <SheepCustomization 
+      {currentStep === 'preferences' && (
+        <SpiritualPreferences 
           onNext={nextStep}
-          onSaveSheep={saveSheepData}
-          initialSheepName={userSheepName}
-          initialSheepColor={sheepColor}
+          onSavePreferences={saveUserPreferences}
+          initialUserName={userName}
+          initialIntention={userIntention}
+          initialSupplication={userSupplication}
         />
       )}
       
       {currentStep === 'journey' && (
         <JourneyScreen 
           onNext={nextStep}
-          sheepName={userSheepName}
-          sheepColor={sheepColor}
+          sheepName={userName}
+          sheepColor="#F9A825"
         />
       )}
       
       {currentStep === 'greeting' && (
         <GreetingCard 
-          sheepName={userSheepName}
-          sheepColor={sheepColor}
+          sheepName={userName}
+          sheepColor="#F9A825"
         />
       )}
     </div>
