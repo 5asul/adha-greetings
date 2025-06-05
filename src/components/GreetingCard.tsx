@@ -4,11 +4,11 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
 interface GreetingCardProps {
-  sheepName: string;
-  sheepColor: string;
+  userName: string;
+  userIntention: string;
 }
 
-export const GreetingCard = ({ sheepName, sheepColor }: GreetingCardProps) => {
+export const GreetingCard = ({ userName, userIntention }: GreetingCardProps) => {
   const [isShared, setIsShared] = useState(false);
 
   const currentHijriDate = '١٠ ذو الحجة ١٤٤٦';
@@ -17,11 +17,11 @@ export const GreetingCard = ({ sheepName, sheepColor }: GreetingCardProps) => {
   const shareMessage = encodeURIComponent(
     `🎉 تهنئة عيد أضحى مميزة من أحمد مبارك عبود عباد إليكم! 
     
-شاهد رحلتي الروحانية مع أضحيتي "${sheepName}" في عيد الأضحى المبارك.
+شاهد رحلتي الروحانية في عيد الأضحى المبارك مع نيتي: "${userIntention}"
 
-كل عام وأنتم بخير! 🐑✨
+كل عام وأنتم بخير! 🕌✨
 
-#عيد_الأضحى #رحلة_أضحيتي`
+#عيد_الأضحى #رحلة_روحانية`
   );
 
   const shareOnWhatsApp = () => {
@@ -36,7 +36,7 @@ export const GreetingCard = ({ sheepName, sheepColor }: GreetingCardProps) => {
     setIsShared(true);
   };
 
-  console.log('Greeting card - Sheep:', sheepName, 'Color:', sheepColor);
+  console.log('Greeting card - User:', userName, 'Intention:', userIntention);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-islamic-gold/20 to-islamic-cream flex items-center justify-center p-6">
@@ -73,10 +73,15 @@ export const GreetingCard = ({ sheepName, sheepColor }: GreetingCardProps) => {
               تمت رحلتي الروحانية بنجاح
             </h2>
             <p className="text-lg text-islamic-olive-dark mb-3 arabic">
-              رافقتني أضحيتي الحبيبة "{sheepName}" في هذه الرحلة المباركة
+              أخي الكريم "{userName}"، لقد رافقتني نيتي المباركة في هذه الرحلة الروحانية
             </p>
+            <div className="bg-white/60 p-4 rounded-lg mb-4">
+              <p className="text-lg font-quran text-islamic-olive arabic">
+                نيتي: "{userIntention}"
+              </p>
+            </div>
             
-            {/* Islamic ornamental design instead of simple sheep */}
+            {/* Islamic ornamental design */}
             <div className="flex justify-center mb-4">
               <div className="relative">
                 {/* Central Islamic pattern */}
