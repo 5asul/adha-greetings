@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,12 +62,29 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				// Islamic color palette
+				islamic: {
+					gold: '#F9A825',
+					'gold-light': '#FFD54F',
+					'gold-dark': '#F57F17',
+					olive: '#4A7C59',
+					'olive-light': '#6B9B76',
+					'olive-dark': '#2E5533',
+					cream: '#FFF8E1',
+					'cream-light': '#FFFEF7',
+					'cream-dark': '#F3F0D7'
 				}
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
 				sm: 'calc(var(--radius) - 4px)'
+			},
+			fontFamily: {
+				'arabic': ['Tajawal', 'Arial', 'sans-serif'],
+				'quran': ['El Messiri', 'serif'],
+				'english': ['Poppins', 'sans-serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -84,11 +102,46 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						opacity: '1',
+						transform: 'scale(1)',
+						boxShadow: '0 0 20px rgba(249, 168, 37, 0.5)'
+					},
+					'50%': { 
+						opacity: '0.8',
+						transform: 'scale(1.05)',
+						boxShadow: '0 0 40px rgba(249, 168, 37, 0.8)'
+					}
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0px)' },
+					'50%': { transform: 'translateY(-10px)' }
+				},
+				'desert-gradient': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' }
+				},
+				'fade-in-up': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(30px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+				'float': 'float 3s ease-in-out infinite',
+				'desert-gradient': 'desert-gradient 8s ease infinite',
+				'fade-in-up': 'fade-in-up 0.6s ease-out'
 			}
 		}
 	},
