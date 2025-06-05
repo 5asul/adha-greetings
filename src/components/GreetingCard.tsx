@@ -214,7 +214,7 @@ ${appUrl}/?from=${encodeURIComponent(userName)}
             <div className="flex items-center justify-center gap-2 mb-3">
               <Gift className="text-emerald-600 animate-pulse" size={20} />
               <p className="text-emerald-700 arabic font-bold text-base">
-                هدية خاصة من {userName}
+                هدية خاصة من {currentSender} إلى {userName}
               </p>
               <Gift className="text-emerald-600 animate-pulse" size={20} />
             </div>
