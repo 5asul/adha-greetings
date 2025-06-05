@@ -7,103 +7,115 @@ interface LandingScreenProps {
 
 export const LandingScreen = ({ onNext }: LandingScreenProps) => {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-islamic-cream via-islamic-cream-light to-islamic-gold/10 relative overflow-hidden">
-      {/* Header with Islamic geometric pattern */}
-      <div className="absolute top-0 left-0 right-0 h-32 bg-gradient-to-b from-islamic-olive/20 to-transparent"></div>
+    <div className="min-h-screen bg-gradient-to-br from-islamic-cream via-white to-islamic-gold/5 relative overflow-hidden">
+      {/* Animated background elements */}
+      <div className="absolute inset-0 opacity-10">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-islamic-gold rounded-full animate-float"></div>
+        <div className="absolute top-40 right-20 w-20 h-20 bg-islamic-olive rounded-full animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-32 left-1/4 w-16 h-16 bg-islamic-gold-light rounded-full animate-float" style={{animationDelay: '1s'}}></div>
+      </div>
+
+      {/* Islamic pattern overlay */}
+      <div className="absolute inset-0 opacity-5 islamic-pattern"></div>
       
-      {/* Main content container */}
-      <div className="relative z-10 min-h-screen flex flex-col">
-        {/* Header section */}
-        <header className="text-center pt-16 pb-8">
-          <div className="container mx-auto px-6">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-islamic-gold/20 rounded-full mb-6 backdrop-blur-sm border border-islamic-gold/30">
-              <span className="text-4xl">🕌</span>
+      <div className="relative z-10 min-h-screen flex flex-col justify-center items-center px-6">
+        {/* Header section with enhanced design */}
+        <div className="text-center mb-12 animate-fade-in-up">
+          {/* Enhanced mosque icon */}
+          <div className="relative mb-8">
+            <div className="w-32 h-32 mx-auto bg-gradient-to-br from-islamic-gold to-islamic-gold-dark rounded-full flex items-center justify-center shadow-2xl border-4 border-white/30 backdrop-blur-sm animate-pulse-glow">
+              <span className="text-6xl">🕌</span>
             </div>
-            <h1 className="text-4xl md:text-6xl font-quran text-islamic-olive mb-4 arabic">
-              رحلة عيد الأضحى المبارك
-            </h1>
-            <div className="w-32 h-1 bg-gradient-to-r from-islamic-gold to-islamic-olive mx-auto mb-4"></div>
-            <p className="text-xl md:text-2xl text-islamic-olive-dark font-semibold arabic">
-              أحمد مبارك عبود عباد
-            </p>
+            {/* Decorative elements around the icon */}
+            <div className="absolute -top-4 -left-4 w-8 h-8 bg-islamic-olive/20 rounded-full"></div>
+            <div className="absolute -top-4 -right-4 w-6 h-6 bg-islamic-gold/30 rounded-full"></div>
+            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-islamic-gold/30 rounded-full"></div>
+            <div className="absolute -bottom-4 -right-4 w-8 h-8 bg-islamic-olive/20 rounded-full"></div>
           </div>
-        </header>
 
-        {/* Main content */}
-        <main className="flex-1 flex items-center justify-center">
-          <div className="container mx-auto px-6 max-w-4xl">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              {/* Text content */}
-              <div className="text-center md:text-right space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold text-islamic-olive arabic leading-relaxed">
-                  كل عام وأنت بخير
-                </h2>
-                <p className="text-lg md:text-xl text-islamic-olive-dark arabic leading-relaxed">
-                  انطلق في رحلة روحانية تفاعلية تأخذك عبر مناسك الحج وتقاليد عيد الأضحى المبارك
-                </p>
-                <p className="text-base text-islamic-olive/80 english italic">
-                  Experience an interactive spiritual journey through Hajj rituals and Eid Al-Adha traditions
-                </p>
-                
-                {/* Features grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-8">
-                  <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-islamic-gold/20">
-                    <div className="text-2xl mb-2">📿</div>
-                    <p className="text-sm text-islamic-olive arabic font-semibold">تجربة تفاعلية</p>
-                  </div>
-                  <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-islamic-gold/20">
-                    <div className="text-2xl mb-2">🎯</div>
-                    <p className="text-sm text-islamic-olive arabic font-semibold">محتوى تعليمي</p>
-                  </div>
-                  <div className="bg-white/60 backdrop-blur-sm rounded-lg p-4 border border-islamic-gold/20">
-                    <div className="text-2xl mb-2">🎁</div>
-                    <p className="text-sm text-islamic-olive arabic font-semibold">بطاقة مخصصة</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Visual element */}
-              <div className="flex justify-center">
-                <div className="relative">
-                  <div className="w-80 h-80 bg-gradient-to-br from-islamic-gold/30 to-islamic-olive/30 rounded-full backdrop-blur-sm border-4 border-islamic-gold/40 flex items-center justify-center relative overflow-hidden">
-                    {/* Kaaba representation */}
-                    <div className="w-32 h-32 bg-islamic-olive rounded-lg shadow-xl relative">
-                      <div className="absolute inset-4 border-2 border-islamic-gold rounded"></div>
-                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-islamic-gold rounded-full"></div>
-                    </div>
-                    
-                    {/* Floating elements */}
-                    <div className="absolute top-12 left-12 w-6 h-6 bg-islamic-gold/60 rounded-full animate-float"></div>
-                    <div className="absolute bottom-16 right-16 w-4 h-4 bg-islamic-olive/60 rounded-full animate-float" style={{animationDelay: '1s'}}></div>
-                    <div className="absolute top-24 right-8 w-8 h-8 bg-islamic-gold/40 rounded-full animate-float" style={{animationDelay: '2s'}}></div>
-                  </div>
-                </div>
-              </div>
+          <h1 className="text-5xl md:text-7xl font-quran text-islamic-olive mb-6 arabic leading-tight">
+            رحلة عيد الأضحى المبارك
+          </h1>
+          
+          {/* Enhanced decorative line */}
+          <div className="flex items-center justify-center mb-6">
+            <div className="w-8 h-8 bg-islamic-gold/20 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 bg-islamic-gold rounded-full"></div>
+            </div>
+            <div className="w-32 h-1 bg-gradient-to-r from-transparent via-islamic-gold to-transparent mx-4"></div>
+            <div className="w-8 h-8 bg-islamic-olive/20 rounded-full flex items-center justify-center">
+              <div className="w-3 h-3 bg-islamic-olive rounded-full"></div>
             </div>
           </div>
-        </main>
 
-        {/* Call to action */}
-        <footer className="text-center pb-16">
-          <div className="container mx-auto px-6">
-            <Button 
-              onClick={onNext}
-              className="bg-gradient-to-r from-islamic-gold to-islamic-gold-dark hover:from-islamic-gold-dark hover:to-islamic-gold text-white px-12 py-6 text-xl font-bold rounded-full shadow-2xl transform hover:scale-105 transition-all duration-300 arabic"
-            >
-              ابدأ الرحلة الآن
-              <span className="mr-3 text-2xl">✨</span>
-            </Button>
+          <p className="text-2xl md:text-3xl text-islamic-olive-dark font-bold arabic mb-4">
+            أحمد مبارك عبود عباد
+          </p>
+          <p className="text-lg text-islamic-olive/80 english italic">
+            Ahmed Mubarak Aboud Abbad
+          </p>
+        </div>
+
+        {/* Main content card */}
+        <div className="max-w-4xl w-full bg-white/80 backdrop-blur-lg rounded-3xl shadow-2xl border border-islamic-gold/20 p-8 mb-12 animate-fade-in-up" style={{animationDelay: '0.3s'}}>
+          <div className="text-center space-y-8">
+            <h2 className="text-3xl md:text-4xl font-bold text-islamic-olive arabic">
+              كل عام وأنتم بخير
+            </h2>
             
-            {/* Islamic symbols */}
-            <div className="flex items-center justify-center space-x-6 mt-8 text-islamic-olive/60">
-              <span className="text-3xl">☪️</span>
-              <div className="w-12 h-0.5 bg-islamic-olive/30"></div>
-              <span className="text-3xl">🕌</span>
-              <div className="w-12 h-0.5 bg-islamic-olive/30"></div>
-              <span className="text-3xl">🌙</span>
+            <p className="text-xl text-islamic-olive-dark arabic leading-relaxed max-w-2xl mx-auto">
+              انطلق في رحلة روحانية تفاعلية تأخذك عبر مناسك الحج وتقاليد عيد الأضحى المبارك مع تجربة شخصية فريدة
+            </p>
+            
+            <p className="text-base text-islamic-olive/70 english italic">
+              Experience a personalized interactive spiritual journey through Hajj rituals and Eid Al-Adha traditions
+            </p>
+            
+            {/* Enhanced features grid */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-10">
+              <div className="bg-gradient-to-br from-islamic-gold/10 to-islamic-gold/5 rounded-2xl p-6 border border-islamic-gold/20 hover:scale-105 transition-all duration-300">
+                <div className="text-4xl mb-4">📿</div>
+                <h3 className="text-lg font-bold text-islamic-olive arabic mb-2">تجربة تفاعلية</h3>
+                <p className="text-sm text-islamic-olive/80 arabic">رحلة شخصية مخصصة</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-islamic-olive/10 to-islamic-olive/5 rounded-2xl p-6 border border-islamic-olive/20 hover:scale-105 transition-all duration-300">
+                <div className="text-4xl mb-4">🎯</div>
+                <h3 className="text-lg font-bold text-islamic-olive arabic mb-2">محتوى تعليمي</h3>
+                <p className="text-sm text-islamic-olive/80 arabic">معلومات دينية أصيلة</p>
+              </div>
+              
+              <div className="bg-gradient-to-br from-islamic-cream/50 to-islamic-cream/30 rounded-2xl p-6 border border-islamic-gold/20 hover:scale-105 transition-all duration-300">
+                <div className="text-4xl mb-4">🎁</div>
+                <h3 className="text-lg font-bold text-islamic-olive arabic mb-2">بطاقة مخصصة</h3>
+                <p className="text-sm text-islamic-olive/80 arabic">تهنئة شخصية للمشاركة</p>
+              </div>
             </div>
           </div>
-        </footer>
+        </div>
+
+        {/* Enhanced call to action */}
+        <div className="text-center animate-fade-in-up" style={{animationDelay: '0.6s'}}>
+          <Button 
+            onClick={onNext}
+            className="group relative bg-gradient-to-r from-islamic-gold via-islamic-gold-light to-islamic-gold hover:from-islamic-gold-dark hover:to-islamic-gold-light text-white px-16 py-8 text-2xl font-bold rounded-full shadow-2xl transform hover:scale-110 transition-all duration-500 arabic border-4 border-white/30"
+          >
+            <span className="relative z-10 flex items-center">
+              ابدأ الرحلة الآن
+              <span className="mr-4 text-3xl group-hover:animate-bounce">✨</span>
+            </span>
+            <div className="absolute inset-0 bg-gradient-to-r from-islamic-olive/20 to-transparent rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          </Button>
+          
+          {/* Islamic symbols with enhanced animation */}
+          <div className="flex items-center justify-center space-x-8 mt-10 text-islamic-olive/40">
+            <span className="text-4xl animate-float">☪️</span>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-islamic-olive/30 to-transparent"></div>
+            <span className="text-4xl animate-float" style={{animationDelay: '1s'}}>🕌</span>
+            <div className="w-16 h-0.5 bg-gradient-to-r from-transparent via-islamic-olive/30 to-transparent"></div>
+            <span className="text-4xl animate-float" style={{animationDelay: '2s'}}>🌙</span>
+          </div>
+        </div>
       </div>
     </div>
   );
