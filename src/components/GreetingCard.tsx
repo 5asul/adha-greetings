@@ -76,15 +76,28 @@ export const GreetingCard = ({ sheepName, sheepColor }: GreetingCardProps) => {
               رافقتني أضحيتي الحبيبة "{sheepName}" في هذه الرحلة المباركة
             </p>
             
-            {/* Sheep representation */}
+            {/* Islamic ornamental design instead of simple sheep */}
             <div className="flex justify-center mb-4">
-              <div 
-                className="w-16 h-16 rounded-full border-4 border-islamic-gold shadow-lg relative"
-                style={{ backgroundColor: sheepColor }}
-              >
-                <div className="absolute top-3 left-3 w-2 h-2 bg-black rounded-full"></div>
-                <div className="absolute top-3 right-3 w-2 h-2 bg-black rounded-full"></div>
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 w-1 h-1 bg-pink-400 rounded-full"></div>
+              <div className="relative">
+                {/* Central Islamic pattern */}
+                <div className="w-20 h-20 bg-gradient-to-br from-islamic-gold to-islamic-gold-light rounded-full border-4 border-white shadow-xl flex items-center justify-center relative">
+                  {/* Inner geometric pattern */}
+                  <div className="w-12 h-12 border-2 border-white rounded-full flex items-center justify-center">
+                    <div className="w-6 h-6 bg-white rounded-full"></div>
+                  </div>
+                  
+                  {/* Decorative dots around */}
+                  <div className="absolute -top-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-islamic-olive rounded-full"></div>
+                  <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-3 h-3 bg-islamic-olive rounded-full"></div>
+                  <div className="absolute -left-2 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-islamic-olive rounded-full"></div>
+                  <div className="absolute -right-2 top-1/2 transform -translate-y-1/2 w-3 h-3 bg-islamic-olive rounded-full"></div>
+                </div>
+                
+                {/* Corner ornaments */}
+                <div className="absolute -top-3 -left-3 text-islamic-gold text-xl">✦</div>
+                <div className="absolute -top-3 -right-3 text-islamic-gold text-xl">✦</div>
+                <div className="absolute -bottom-3 -left-3 text-islamic-gold text-xl">✦</div>
+                <div className="absolute -bottom-3 -right-3 text-islamic-gold text-xl">✦</div>
               </div>
             </div>
           </div>
